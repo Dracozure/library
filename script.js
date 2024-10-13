@@ -1,5 +1,7 @@
 const myLibrary = [];
 
+const addBookButton = document.getElementById('.add-book');
+
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -7,8 +9,3 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-function addBookToLibrary(title, author, pages, read) {
-    const book = new Book(title, author, pages, read);
-    
-    myLibrary.push(book);
-}
