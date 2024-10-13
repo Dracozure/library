@@ -2,6 +2,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
+    --padding-general: 10px;
 }
 
 /* Header */
@@ -10,7 +12,7 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 20px;
+    padding: calc(var(--padding-general) * 2);
     font-size: 1.2rem;
     background-color: #d3d3d3;
 }
@@ -32,11 +34,25 @@ a:active {
 }
 
 button.add-book {
-    padding: 10px;
+    padding: var(--padding-general);
     font-size: 1.5rem;
     font-weight: bold;
     border-radius: 10px;
     background-color: aliceblue;
+}
+
+/* Footer */
+
+footer {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding-general);
+    font-size: 1.2rem;
+    background-color: gray;
+    bottom: 0;
+    width: 100%;
 }
 
 
