@@ -72,10 +72,19 @@ footer {
 
 form {
     background-color: lightblue;
-    width: 230px;
-    height: 250px;
+    width: 295px;
+    height: 350px;
+    border-radius: 20px;
+    row-gap: 1.2rem;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+}
+
+form input {
+    font-size: 1.2rem;
+    height: 2.2rem;
+    border-radius: 10px;
+    border: none;
 }
