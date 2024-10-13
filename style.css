@@ -83,8 +83,16 @@ form {
 }
 
 form input {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    max-width: 250px;
     height: 2.2rem;
     border-radius: 10px;
+    padding: var(--padding-general);
     border: none;
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+    outline: none;
 }
