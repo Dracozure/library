@@ -58,9 +58,24 @@ footer {
 /* Modal and Overlay */
 
 .modal {
-    display: visible;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.modal.active {
-    display: visible;
+/* Form */
+
+form {
+    background-color: lightblue;
+    width: 200px;
+    height: 150px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
 }
