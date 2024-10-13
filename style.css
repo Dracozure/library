@@ -54,3 +54,13 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+/* Modal and Overlay */
+
+.modal {
+    display: visible;
+}
+
+.modal.active {
+    display: visible;
+}
