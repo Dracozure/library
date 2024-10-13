@@ -9,7 +9,16 @@
 header {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     padding: 20px;
     font-size: 1.2rem;
-    background-color: lightgray;
+    background-color: #d3d3d3;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: #000000;
 }
