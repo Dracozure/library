@@ -103,6 +103,14 @@ div.checkbox {
     width: 18px;
 }
 
+button[type="submit"] {
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+}
+
 textarea:focus,
 input:focus {
     outline: none;
