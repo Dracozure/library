@@ -91,6 +91,18 @@ form input {
     border: none;
 }
 
+div.checkbox {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+[type="checkbox"] {
+    width: 18px;
+}
+
 textarea:focus,
 input:focus {
     outline: none;
