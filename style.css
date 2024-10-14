@@ -41,6 +41,10 @@ button.add-book {
     background-color: aliceblue;
 }
 
+button.add-book:hover {
+    background-color: white;
+}
+
 /* Footer */
 
 footer {
@@ -58,12 +62,16 @@ footer {
 /* Modal and Overlay */
 
 .modal {
+    display: none;
+}
+
+.modal.active {
+    display: flex;
     position: absolute;
     top: 0;
     z-index: 1;
     width: 100vw;
     height: 100vh;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
