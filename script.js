@@ -2,14 +2,15 @@ const myLibrary = [];
 
 const addBookButton = document.querySelector('.add-book');
 const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
 let mouseDown = 0;
 
-addBookButton.addEventListener("click", () => {
-    modal.classList.add("active");
+addBookButton.addEventListener('click', () => {
+    modal.classList.add('active');
 });
 
-modal.addEventListener("mousedown", (event) => {
-    mouseDown = 1;
+overlay.addEventListener('click', () => {
+    modal.classList.remove('active');
 });
 
 function Book(title, author, pages, read) {

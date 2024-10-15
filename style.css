@@ -71,18 +71,18 @@ footer {
 
 .modal.active {
     display: flex;
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     vertical-align: middle;
     justify-content: center;
     align-items: center;
-    transition: 0.4s ease-in-out;
+    transition: 0.2s ease-in-out;
     transform: translate(-50%, -50%) scale(1);
 }
 
 .overlay {
-    position: fixed;
+    position: absolute;
     z-index: 1;
     width: 100vw;
     height: 100vh;
