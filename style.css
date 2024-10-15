@@ -66,21 +66,20 @@ footer {
 /* Modal and Overlay */
 
 .modal {
-    display: none;
-    transition: 0.2s ease-in-out;
+    transform: translate(-50%, -50%) scale(0);
 }
 
 .modal.active {
     display: flex;
     position: fixed;
-    transform: translate(-50%, -50%) scale(1);
     top: 50%;
     left: 50%;
     vertical-align: middle;
     z-index: 1;
     justify-content: center;
     align-items: center;
-    transition: 1s ease-in-out;
+    transition: 0.4s ease-in-out;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 /* Form */
