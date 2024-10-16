@@ -146,8 +146,10 @@ input:focus {
 
 .book-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, 320px);
+    gap: 1.3rem;
     padding: 30px;
+    justify-content: space-around;
 }
 
 /* Book Card */
@@ -158,7 +160,7 @@ input:focus {
     row-gap: 1.2rem;
     font-size: 1.5rem;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     text-align: center;
     padding: 1.3rem;
     border: 3px solid black;
@@ -169,8 +171,8 @@ input:focus {
     font-size: inherit;
     padding: 5px 10px;
     border-radius: 10px;
-    width: 95%;
     border: none;
     font-weight: bold;
     background-color: lightgray;
+    width: 95%;
 }
