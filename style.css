@@ -33,8 +33,10 @@ a:active {
 
 .main-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    margin-top: 30px;
+    max-width: 70%;
+    margin: 35px auto;
 }
 
 button.add-book {
@@ -43,6 +45,8 @@ button.add-book {
     font-weight: bold;
     border-radius: 10px;
     background-color: aliceblue;
+    width: fit-content;
+    align-self: center;
 }
 
 button.add-book:hover {
@@ -136,4 +140,23 @@ textarea:focus,
 input:focus {
     outline: none;
     outline: none;
+}
+
+/* Book Grid */
+
+.book-grid {
+    display: grid;
+    margin: 1.3rem;
+}
+
+/* Book Card */
+
+.book-card {
+    display: flex;
+    flex-flow: column nowrap;
+    max-height: 280px;
+    max-width: 320px;
+    row-gap: 1.2rem;
+    font-size: 1.3rem;
+    text-align: center;
 }
