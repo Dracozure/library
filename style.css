@@ -7,6 +7,7 @@
 }
 
 html {
+    position: relative;
     min-height: 100%;
 }
 
@@ -53,23 +54,10 @@ button.add-book:hover {
     background-color: white;
 }
 
-/* Footer */
-
-footer {
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    padding: var(--padding-general);
-    font-size: 1.2rem;
-    background-color: gray;
-    bottom: 0;
-    width: 100%;
-}
-
 /* Modal and Overlay */
 
 .modal {
+    position: absolute;
     transform: translate(-50%, -50%) scale(0);
 }
 
@@ -175,4 +163,18 @@ input:focus {
     font-weight: bold;
     background-color: lightgray;
     width: 95%;
+}
+
+/* Footer */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding-general);
+    font-size: 1.2rem;
+    background-color: gray;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }
