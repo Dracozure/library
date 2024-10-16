@@ -137,6 +137,7 @@ input:focus {
     grid-template-columns: repeat(auto-fill, 320px);
     gap: 1.3rem;
     padding: 30px;
+    padding-bottom: 50px;
     justify-content: space-around;
 }
 
@@ -168,6 +169,7 @@ input:focus {
 /* Footer */
 
 footer {
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -175,6 +177,5 @@ footer {
     font-size: 1.2rem;
     background-color: gray;
     width: 100%;
-    position: absolute;
     bottom: 0;
 }
