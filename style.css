@@ -163,15 +163,25 @@ input:focus {
     width: 95%;
 }
 
-button.read,
-button.remove {
+.button-group button {
     font-size: inherit;
     padding: 5px 10px;
     border-radius: 10px;
     border: none;
     font-weight: bold;
-    background-color: lightgray;
     width: 100%;
+}
+
+.read {
+    background-color: #96e796;
+}
+
+.unread {
+    background-color: #ee7474;
+}
+
+.remove {
+    background-color: #dddada;
 }
 
 /* Footer */
