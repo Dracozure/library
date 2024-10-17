@@ -149,21 +149,29 @@ input:focus {
     row-gap: 1.2rem;
     font-size: 1.5rem;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     text-align: center;
     padding: 1.3rem;
     border: 3px solid black;
     border-radius: 15px;
 }
 
-.book-card button {
+.button-group {
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 1.2rem;
+    width: 95%;
+}
+
+button.read,
+button.remove {
     font-size: inherit;
     padding: 5px 10px;
     border-radius: 10px;
     border: none;
     font-weight: bold;
     background-color: lightgray;
-    width: 95%;
+    width: 100%;
 }
 
 /* Footer */
