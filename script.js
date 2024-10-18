@@ -22,13 +22,43 @@ overlay.addEventListener('click', () => {
 });
 
 form.addEventListener('submit', () => {
-    const title = document.getElementById('title');
-    const author = document.getElementById('author');
-    const pages = document.getElementById('pages');
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pages = document.getElementById('pages').value;
+    const read = document.getElementById('read').value;
     const bookCard = createBookCard();
 });
 
-function createBookCard() {
-    ;
+function createBookCard(title, author, pages, read) {
+    const newBookCard = document.createElement('div');
+    const titleElement = document.createElement('h4');
+    const authorElement = document.createElement('h4');
+    const pagesElement = document.createElement('h4');
+    const buttonGroup = document.createElement('div');
+    const readElement = document.createElement('button');
+    const removeElement = document.createElement('button');
+    const readValue = read.value ? 'Read' : 'Unread';
+
+    titleElement.textContent = title;
+    authorElement.textContent = author;
+    pagesElement.textContent = pages;
+    read.textContent = readValue;
+
+    titleElement.classList.add('book-title');
+    authorElement.classList.add('book-author');
+    pagesElement.classList.add('pages');
+    buttonGroup.classList.add('button-group');
+    readElement.classList.add(readValue.toLowerCase());
+    removeElement.classList.add('remove');
+
+    buttonGroup.appendChild(readElement);
+    buttonGroup.appendChild(removeElement);
+
+    newBookCard.appendChild(titleElement);
+    newBookCard.appendChild(authorElement);
+    newBookCard.appendChild(pagesElement);
+    newBookCard.appendChild(buttonGroup);
+
+    return newBookCard;
 }
 
