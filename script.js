@@ -4,6 +4,7 @@ const addBookButton = document.querySelector('.add-book');
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const form = document.querySelector('form');
+const bookGrid = document.querySelector('.book-grid');
 let mouseDown = 0;
 
 function Book(title, author, pages, read) {
@@ -26,7 +27,10 @@ form.addEventListener('submit', () => {
     const author = document.getElementById('author').value;
     const pages = document.getElementById('pages').value;
     const read = document.getElementById('read').value;
-    const bookCard = createBookCard();
+    const bookCard = createBookCard(title, author, pages, read);
+
+    bookGrid.appendChild(bookCard);
+    modal.classList.remove('active');
 });
 
 function createBookCard(title, author, pages, read) {
@@ -37,13 +41,15 @@ function createBookCard(title, author, pages, read) {
     const buttonGroup = document.createElement('div');
     const readElement = document.createElement('button');
     const removeElement = document.createElement('button');
-    const readValue = read.value ? 'Read' : 'Unread';
+    const readValue = (read === 'on') ? 'Read' : 'Unread';
 
     titleElement.textContent = title;
     authorElement.textContent = author;
     pagesElement.textContent = pages;
-    read.textContent = readValue;
+    readElement.textContent = readValue;
+    removeElement.textContent = 'Remove';
 
+    newBookCard.classList.add('book-card');
     titleElement.classList.add('book-title');
     authorElement.classList.add('book-author');
     pagesElement.classList.add('pages');
