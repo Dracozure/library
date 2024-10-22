@@ -14,27 +14,8 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-addBookButton.addEventListener('click', () => {
-    modal.classList.add('active');
-});
-
-overlay.addEventListener('click', () => {
-    modal.classList.remove('active');
-});
-
-form.addEventListener('submit', () => {
-    const title = document.getElementById('title').value;
-    const author = document.getElementById('author').value;
-    const pages = document.getElementById('pages').value;
-    const read = document.getElementById('read').value;
-    const bookCard = createBookCard(title, author, pages, read);
-
-    bookGrid.appendChild(bookCard);
-    modal.classList.remove('active');
-});
-
-function createBookCard(title, author, pages, read) {
-    const newBookCard = document.createElement('div');
+Book.prototype.createBookCardElement = function(title, author,pages, read) {
+    const newBookCardElement = document.createElement('div');
     const titleElement = document.createElement('h4');
     const authorElement = document.createElement('h4');
     const pagesElement = document.createElement('h4');
@@ -65,6 +46,25 @@ function createBookCard(title, author, pages, read) {
     newBookCard.appendChild(pagesElement);
     newBookCard.appendChild(buttonGroup);
 
-    return newBookCard;
+    return newBookCardElement;
 }
+
+addBookButton.addEventListener('click', () => {
+    modal.classList.add('active');
+});
+
+overlay.addEventListener('click', () => {
+    modal.classList.remove('active');
+});
+
+form.addEventListener('submit', () => {
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pages = document.getElementById('pages').value;
+    const read = document.getElementById('read').value;
+    const bookCard = createBookCard(title, author, pages, read);
+
+    bookGrid.appendChild(bookCard);
+    modal.classList.remove('active');
+});
 
