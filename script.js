@@ -3,6 +3,7 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const form = document.querySelector('form');
 const bookGrid = document.querySelector('.book-grid');
+
 const library = {
     books: [],
     assignBookElementIndex: function(bookCardElement) {
