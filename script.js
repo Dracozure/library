@@ -16,13 +16,11 @@ const library = {
     appendBook: function(book) {
         this.books.push(book);
     },
-    hasDuplicate: function(bookCardElement) {
-        const bookTitle = bookCardElement.querySelector('.book-title').textContent;
+    hasDuplicate: function(book) {
+        const bookTitle = book.title.toLowerCase();
 
-        for (let book in this.books) {
-            const arrBookTitle = book.title;
-
-            if (bookTitle.toLowerCase() === arrBookTitle.toLowerCase()) {
+        for (let index in this.books) {
+            if (this.books[index].title.toLowerCase() === bookTitle) {
                 return true;
             }
         }
@@ -32,6 +30,8 @@ const library = {
 }
 
 form.addEventListener('submit', (event) => {
+    event.preventDefault;
+
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const pages = document.getElementById('pages').value;
@@ -39,12 +39,13 @@ form.addEventListener('submit', (event) => {
     const book = new Book(title, author, pages, read);
     const bookCardElement = createBookCardElement(book);
 
+    const dup = library.hasDuplicate(book);
+
     assignBookElementIndex(bookCardElement);
     addBookElementToDOM(bookCardElement);
     library.appendBook(book);
 
     modal.classList.remove('active');
-    event.preventDefault;
 });
 
 function createBookCardElement(book) {
