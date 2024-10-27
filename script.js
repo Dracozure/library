@@ -4,18 +4,6 @@ const overlay = document.querySelector('.overlay');
 const form = document.querySelector('form');
 const bookGrid = document.querySelector('.book-grid');
 
-const library = {
-    books: [],
-    assignBookElementIndex: function(bookCardElement) {
-        const index = this.books.length
-
-        bookCardElement.setAttribute('data', index);
-    },
-    addBookElement: function(bookCardElement) {
-        this.books.push(bookCardElement);
-    }
-}
-
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -23,28 +11,43 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-addBookButton.addEventListener('click', () => {
-    modal.classList.add('active');
-});
+const library = {
+    books: [],
+    appendBook: function(book) {
+        this.books.push(book);
+    },
+    hasDuplicate: function(bookCardElement) {
+        const bookTitle = bookCardElement.querySelector('.book-title').textContent;
 
-overlay.addEventListener('click', () => {
-    modal.classList.remove('active');
-});
+        for (let book in this.books) {
+            const arrBookTitle = book.title;
 
-form.addEventListener('submit', () => {
+            if (bookTitle.toLowerCase() === arrBookTitle.toLowerCase()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}
+
+form.addEventListener('submit', (event) => {
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const pages = document.getElementById('pages').value;
     const read = document.getElementById('read').value;
-    const bookCardElement = createBookCardElement(new Book(title, author, pages, read));
+    const book = new Book(title, author, pages, read);
+    const bookCardElement = createBookCardElement(book);
 
-    library.assignBookElementIndex(bookCardElement);
-    library.addBookElement(bookCardElement);
-    bookGrid.appendChild(bookCardElement);
+    assignBookElementIndex(bookCardElement);
+    addBookElementToDOM(bookCardElement);
+    library.appendBook(book);
+
     modal.classList.remove('active');
+    event.preventDefault;
 });
 
-createBookCardElement = function(book) {
+function createBookCardElement(book) {
     const bookCardElement = document.createElement('div');
     const titleElement = document.createElement('h4');
     const authorElement = document.createElement('h4');
@@ -78,4 +81,27 @@ createBookCardElement = function(book) {
 
     return bookCardElement;
 }
+
+function assignBookElementIndex(bookCardElement) {
+    const index = library.books.length
+
+    bookCardElement.setAttribute('data', index);
+}
+
+function addBookElementToDOM(bookCardElement) {
+    bookGrid.appendChild(bookCardElement);
+}
+
+function removeBookElementFromDOM(bookCardElement) {
+    bookGrid.removeChild(bookCardElement);
+}
+
+addBookButton.addEventListener('click', () => {
+    modal.classList.add('active');
+});
+
+overlay.addEventListener('click', () => {
+    form.reset();
+    modal.classList.remove('active');
+});
 
