@@ -44,7 +44,12 @@ const library = {
         });
     },
     toggleRead: function(bookTitle) {
-        ;
+        this.books.forEach(book => {
+            if (book.title === bookTitle) {
+                book.toggleRead();
+                return;
+            }
+        });
     }
 }
 
@@ -75,6 +80,10 @@ function addRemoveListener(bookElement) {
         library.removeBook(bookElement.querySelector('.book-title').value);
         bookGrid.removeChild(bookElement);
     });
+}
+
+function toggleReadListener(bookElement) {
+    const readButton = bookElement.querySelector('.read-button');
 }
 
 function createBookCardElement(book) {
