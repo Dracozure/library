@@ -39,13 +39,15 @@ form.addEventListener('submit', (event) => {
     const book = new Book(title, author, pages, read);
     const bookCardElement = createBookCardElement(book);
 
-    const dup = library.hasDuplicate(book);
-
-    assignBookElementIndex(bookCardElement);
-    addBookElementToDOM(bookCardElement);
-    library.appendBook(book);
-
-    modal.classList.remove('active');
+    if (!library.hasDuplicate(book)) {
+        assignBookElementIndex(bookCardElement);
+        addBookElementToDOM(bookCardElement);
+        library.appendBook(book);
+        form.reset();
+        modal.classList.remove('active');
+    } else {
+        throw Error;
+    }
 });
 
 function createBookCardElement(book) {
