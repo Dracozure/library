@@ -12,7 +12,7 @@ function Book(title, author, pages, read) {
 }
 
 Book.prototype.toggleRead = function() {
-    this.read = 'on' ? 'off' : 'on';
+    this.read = (this.read === 'on') ? 'off' : 'on';
 }
 
 const library = {
@@ -64,6 +64,8 @@ form.addEventListener('submit', (event) => {
     const bookCardElement = createBookCardElement(book);
 
     if (!library.hasDuplicate(book)) {
+        addRemoveListener(bookCardElement);
+        addToggleReadListener(bookCardElement);
         addBookElementToDOM(bookCardElement);
         library.appendBook(book);
         form.reset();
@@ -82,8 +84,16 @@ function addRemoveListener(bookElement) {
     });
 }
 
-function toggleReadListener(bookElement) {
+function addToggleReadListener(bookElement) {
     const readButton = bookElement.querySelector('.read-button');
+    const readCurrent = Array.from(readButton.classList)[0];
+    const readOpposite = (readCurrent === 'read') ? 'unread' : 'read';
+
+    readButton.addEventListener('click', () => {
+        library.toggleRead(bookElement.querySelector('.book-title').value);
+        readButton.classList.remove(readCurrent);
+        readButton.classList.add(readOpposite);
+    });
 }
 
 function createBookCardElement(book) {
