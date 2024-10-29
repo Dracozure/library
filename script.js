@@ -11,6 +11,10 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+Book.prototype.toggleRead = function() {
+    this.read = 'on' ? 'off' : 'on';
+}
+
 const library = {
     books: [],
     appendBook: function(book) {
@@ -26,6 +30,12 @@ const library = {
         }
 
         return false;
+    },
+    removeBook: function(bookIndex) {
+        ; 
+    },
+    toggleRead: function(bookIndex) {
+        ;
     }
 }
 
