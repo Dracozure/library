@@ -31,10 +31,19 @@ const library = {
 
         return false;
     },
-    removeBook: function(bookIndex) {
-        ; 
+    removeBook: function(bookTitle) {
+        let bookIndex = 0;
+
+        this.books.forEach(book => {
+            if (book.title === bookTitle) {
+                this.books.splice(bookIndex, 1);
+                return;
+            }
+
+            bookIndex++;
+        });
     },
-    toggleRead: function(bookIndex) {
+    toggleRead: function(bookTitle) {
         ;
     }
 }
@@ -50,7 +59,6 @@ form.addEventListener('submit', (event) => {
     const bookCardElement = createBookCardElement(book);
 
     if (!library.hasDuplicate(book)) {
-        assignBookElementIndex(bookCardElement);
         addBookElementToDOM(bookCardElement);
         library.appendBook(book);
         form.reset();
@@ -59,6 +67,15 @@ form.addEventListener('submit', (event) => {
         throw Error;
     }
 });
+
+function addRemoveListener(bookElement) {
+    const removeButton = bookElement.querySelector('.remove');
+
+    removeButton.addEventListener('click', () => {
+        library.removeBook(bookElement.querySelector('.book-title').value);
+        bookGrid.removeChild(bookElement);
+    });
+}
 
 function createBookCardElement(book) {
     const bookCardElement = document.createElement('div');
@@ -81,7 +98,7 @@ function createBookCardElement(book) {
     authorElement.classList.add('book-author');
     pagesElement.classList.add('pages');
     buttonGroup.classList.add('button-group');
-    readElement.classList.add(readValue.toLowerCase());
+    readElement.classList.add(readValue.toLowerCase(), 'read-button');
     removeElement.classList.add('remove');
 
     buttonGroup.appendChild(readElement);
@@ -93,12 +110,6 @@ function createBookCardElement(book) {
     bookCardElement.appendChild(buttonGroup);
 
     return bookCardElement;
-}
-
-function assignBookElementIndex(bookCardElement) {
-    const index = library.books.length
-
-    bookCardElement.setAttribute('data', index);
 }
 
 function addBookElementToDOM(bookCardElement) {
