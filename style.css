@@ -221,7 +221,8 @@ form.title-container {
     transform: translate(10px, -30px);
     background-color: rgb(173, 168, 168);
     font-size: 1rem;
-    padding: 5px;
+    border-radius: 5px;
+    padding: 7px;
     flex-flow: row wrap;
 }
 
