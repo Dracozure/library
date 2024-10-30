@@ -86,13 +86,15 @@ function addRemoveListener(bookElement) {
 
 function addToggleReadListener(bookElement) {
     const readButton = bookElement.querySelector('.read-button');
-    const readCurrent = Array.from(readButton.classList)[0];
-    const readOpposite = (readCurrent === 'read') ? 'unread' : 'read';
 
     readButton.addEventListener('click', () => {
+        const readCurrent = Array.from(readButton.classList)[1];
+        const readOpposite = (readCurrent === 'read') ? 'Unread' : 'Read';
+        
         library.toggleRead(bookElement.querySelector('.book-title').value);
         readButton.classList.remove(readCurrent);
-        readButton.classList.add(readOpposite);
+        readButton.classList.add(readOpposite.toLowerCase());
+        readButton.textContent = readOpposite;
     });
 }
 
@@ -117,7 +119,7 @@ function createBookCardElement(book) {
     authorElement.classList.add('book-author');
     pagesElement.classList.add('pages');
     buttonGroup.classList.add('button-group');
-    readElement.classList.add(readValue.toLowerCase(), 'read-button');
+    readElement.classList.add('read-button', readValue.toLowerCase());
     removeElement.classList.add('remove');
 
     buttonGroup.appendChild(readElement);
