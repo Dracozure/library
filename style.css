@@ -149,7 +149,7 @@ div.checkbox {
 label[for="read"] {
     display: flex;
     align-items: center;
-    gap: 7px;
+    gap: 10px;
 }
 
 input[type="checkbox"] {
@@ -181,7 +181,7 @@ input[type="checkbox"]:checked::before {
 
 input[type="checkbox"]:focus {
     outline: 0.15em solid black;
-    outline-offset: 2px;
+    outline-offset: 0.2em;
 }
 
 button[type="submit"] {
