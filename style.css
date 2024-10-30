@@ -15,6 +15,7 @@ html {
 :root {
     --default-letter-spacing: 0.15rem;
     --padding-general: 10px;
+    --button-transition: 0.15s ease-in-out;
 }
 
 @font-face {
@@ -64,17 +65,18 @@ h1[class='title'] {
 }
 
 button.add-book {
+    transition: var(--button-transition);
     padding: var(--padding-general);
     font-size: 1.5rem;
     font-weight: bold;
     border-radius: 10px;
-    background-color: aliceblue;
+    background-color: #d3e8fa;
     width: fit-content;
     align-self: center;
 }
 
 button.add-book:hover {
-    background-color: white;
+    background-color: #9bc7ee;
 }
 
 /* Modal and Overlay */
@@ -145,7 +147,7 @@ button[type="submit"] {
     font-size: 1.2rem;
     border-radius: 10px;
     border: none;
-    background-color: white;
+    background-color: #ffffff;
     font-weight: bold;
 }
 
@@ -177,7 +179,7 @@ input:focus {
     justify-content: space-between;
     text-align: center;
     padding: 1.3rem;
-    border: 3px solid black;
+    border: 3px solid #000000;
     border-radius: 15px;
 }
 
@@ -189,8 +191,6 @@ input:focus {
 }
 
 .button-group button {
-    --button-transition: 0.1s ease-in-out;
-
     font-size: inherit;
     padding: 5px 10px;
     border-radius: 10px;
@@ -205,7 +205,7 @@ input:focus {
 }
 
 .read:hover {
-    background-color: rgb(169, 250, 169);
+    background-color: #a9faa9;
 }
 
 .unread {
@@ -223,7 +223,7 @@ input:focus {
 }
 
 .remove:hover {
-    background-color: rgb(196, 196, 196);
+    background-color: #c4c4c4;
 }
 
 /* Footer */
@@ -235,7 +235,7 @@ footer {
     align-items: center;
     padding: var(--padding-general);
     font-size: 1.3rem;
-    background-color: gray;
+    background-color: #808080;
     width: 100%;
     bottom: 0;
 }
