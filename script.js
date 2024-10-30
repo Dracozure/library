@@ -75,7 +75,7 @@ function addRemoveListener(bookElement) {
     const removeButton = bookElement.querySelector('.remove');
 
     removeButton.addEventListener('click', () => {
-        library.removeBook(bookElement.querySelector('.book-title').value);
+        library.removeBook(bookElement.querySelector('.book-title').textContent);
         bookGrid.removeChild(bookElement);
     });
 }
