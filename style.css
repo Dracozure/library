@@ -179,6 +179,11 @@ input[type="checkbox"]:checked::before {
     scale: 1;
 }
 
+input[type="checkbox"]:focus {
+    outline: 0.15em solid black;
+    outline-offset: 2px;
+}
+
 button[type="submit"] {
     padding: 7px 12px;
     font-size: 1.4rem;
