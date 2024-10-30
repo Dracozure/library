@@ -58,7 +58,9 @@ h1[class='title'] {
 textarea:focus,
 input:focus,
 button:focus,
-label:focus {
+label:focus,
+a:focus {
+    border: none;
     outline: var(--focus-outline);
 }
 
@@ -196,11 +198,6 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #e4e4e4;
-}
-
-button[type="submit"]:focus {
-    transition: none;
-    border-color: #000000;
 }
 
 form.title-container {
