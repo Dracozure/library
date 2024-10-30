@@ -16,6 +16,7 @@ html {
     --default-letter-spacing: 0.15rem;
     --padding-general: 10px;
     --button-transition: 0.15s ease-in-out;
+    --focus-border: 2px solid #000000;
 }
 
 @font-face {
@@ -54,6 +55,12 @@ h1[class='title'] {
     letter-spacing: 0.5rem;
 }
 
+button:focus,
+input:focus,
+label:focus {
+    border: var(--focus-border);
+}
+
 /* Main */
 
 .main-container {
@@ -73,6 +80,7 @@ button.add-book {
     background-color: #d3e8fa;
     width: fit-content;
     align-self: center;
+    border: none;
 }
 
 button.add-book:hover {
