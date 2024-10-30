@@ -16,7 +16,7 @@ html {
     --default-letter-spacing: 0.15rem;
     --padding-general: 10px;
     --button-transition: 0.15s ease-in-out;
-    --focus-border: 2px solid #000000;
+    --focus-outline: 2px solid #000000;
 }
 
 @font-face {
@@ -55,10 +55,11 @@ h1[class='title'] {
     letter-spacing: 0.5rem;
 }
 
-button:focus,
+textarea:focus,
 input:focus,
+button:focus,
 label:focus {
-    border: var(--focus-border);
+    outline: var(--focus-outline);
 }
 
 /* Main */
@@ -191,7 +192,6 @@ button[type="submit"] {
     border: 2px solid transparent;
     background-color: #ffffff;
     font-weight: bold;
-    transition: var(--button-transition);
 }
 
 button[type="submit"]:hover {
@@ -200,13 +200,7 @@ button[type="submit"]:hover {
 
 button[type="submit"]:focus {
     transition: none;
-    border-color: black;
-}
-
-textarea:focus,
-input:focus,
-button:focus {
-    outline: none;
+    border-color: #000000;
 }
 
 form.title-container {
