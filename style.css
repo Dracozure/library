@@ -209,6 +209,22 @@ button:focus {
     outline: none;
 }
 
+form.title-container {
+    position: relative;
+}
+
+.duplicate-warn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(10px, -30px);
+    background-color: rgb(173, 168, 168);
+    font-size: 1rem;
+    padding: 5px;
+    flex-flow: row wrap;
+}
+
 /* Book Grid */
 
 .book-grid {
