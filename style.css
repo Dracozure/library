@@ -146,8 +146,19 @@ div.checkbox {
     font-weight: bold;
 }
 
+label[for="read"] {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
 [type="checkbox"] {
-    width: 18px;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid black;
+    width: 1em;
+    height: 1em;
+    border-radius: 0.15em;
 }
 
 button[type="submit"] {
