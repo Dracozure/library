@@ -149,7 +149,7 @@ div.checkbox {
 label[for="read"] {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 7px;
 }
 
 input[type="checkbox"] {
