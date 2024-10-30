@@ -218,12 +218,23 @@ form.title-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: translate(10px, -30px);
-    background-color: rgb(173, 168, 168);
+    transform: translate(10px, -45px);
+    background-color: rgb(224, 221, 221);
     font-size: 1rem;
     border-radius: 5px;
     padding: 7px;
     flex-flow: row wrap;
+}
+
+.duplicate-warn::before {
+    position: absolute;
+    content: '';
+    width: 18px;
+    height: 18px;
+    bottom: -15px;
+    left: 10px;
+    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+    background-color: inherit;
 }
 
 /* Book Grid */
