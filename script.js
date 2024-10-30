@@ -11,10 +11,6 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-Book.prototype.toggleRead = function() {
-    this.read = this.read ? false : true;
-}
-
 const library = {
     books: [],
     appendBook: function(book) {
@@ -46,7 +42,7 @@ const library = {
     toggleRead: function(bookTitle) {
         this.books.forEach(book => {
             if (book.title === bookTitle) {
-                book.toggleRead();
+                book.read = book.read ? false : true;
                 return;
             }
         });
@@ -91,7 +87,7 @@ function addToggleReadListener(bookElement) {
         const readCurrent = Array.from(readButton.classList)[1];
         const readOpposite = (readCurrent === 'read') ? 'Unread' : 'Read';
 
-        library.toggleRead(bookElement.querySelector('.book-title').value);
+        library.toggleRead(bookElement.querySelector('.book-title').textContent);
         readButton.classList.remove(readCurrent);
         readButton.classList.add(readOpposite.toLowerCase());
         readButton.textContent = readOpposite;
