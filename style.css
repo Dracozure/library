@@ -159,16 +159,24 @@ input[type="checkbox"] {
     place-content: center;
     appearance: none;
     border: 0.15em solid black;
-    width: 15px;
-    height: 15px;
+    width: 1.3em;
+    height: 1.3em;
     border-radius: 0.15em;
 }
 
 input[type="checkbox"]::before {
+    scale: 0;
+    transition: 100ms ease-in-out;
     content: '';
-    height: 0.65em;
-    width: 0.65em;
+    height: 1em;
+    width: 1em;
     box-shadow: inset 1em 1em black;
+    background-color: CanvasText;
+    clip-path: polygon(41% 52%, 26% 35%, 10% 51%, 37% 88%, 37% 88%, 37% 88%, 37% 88%, 37% 88%, 91% 33%, 78% 18%);
+}
+
+input[type="checkbox"]:checked::before {
+    scale: 1;
 }
 
 button[type="submit"] {
