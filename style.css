@@ -189,6 +189,8 @@ input:focus {
 }
 
 .button-group button {
+    --button-transition: 0.1s ease-in-out;
+
     font-size: inherit;
     padding: 5px 10px;
     border-radius: 10px;
@@ -198,15 +200,30 @@ input:focus {
 }
 
 .read {
-    background-color: #96e796;
+    background-color: #8be48b;
+    transition: var(--button-transition);
+}
+
+.read:hover {
+    background-color: rgb(169, 250, 169);
 }
 
 .unread {
     background-color: #ee7474;
+    transition: var(--button-transition);
+}
+
+.unread:hover {
+    background-color: rgb(241, 65, 65);
 }
 
 .remove {
     background-color: #dddada;
+    transition: var(--button-transition);
+}
+
+.remove:hover {
+    background-color: rgb(196, 196, 196);
 }
 
 /* Footer */
