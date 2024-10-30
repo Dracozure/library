@@ -67,7 +67,9 @@ form.addEventListener('submit', (event) => {
         form.reset();
         modal.classList.remove('active');
     } else {
-        throw Error;
+        const duplicateWarn = document.querySelector('.duplicate-warn');
+
+        duplicateWarn.classList.add('active');
     }
 });
 

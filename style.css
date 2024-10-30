@@ -188,7 +188,7 @@ button[type="submit"] {
     padding: 7px 12px;
     font-size: 1.4rem;
     border-radius: 10px;
-    border: none;
+    border: 2px solid transparent;
     background-color: #ffffff;
     font-weight: bold;
     transition: var(--button-transition);
@@ -200,7 +200,7 @@ button[type="submit"]:hover {
 
 button[type="submit"]:focus {
     transition: none;
-    border: var(--focus-border);
+    border-color: black;
 }
 
 textarea:focus,
@@ -215,15 +215,21 @@ form.title-container {
 
 .duplicate-warn {
     position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translate(10px, -45px);
-    background-color: rgb(224, 221, 221);
+    display: none;
+    transform: translate(10px, -42px);
+    background-color: #f07e7e;
     font-size: 1rem;
     border-radius: 5px;
     padding: 7px;
     flex-flow: row wrap;
+    transition: 100ms ease-in-out;
+}
+
+.duplicate-warn.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 100ms ease-in-out;
 }
 
 .duplicate-warn::before {
