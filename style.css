@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
 
-    font-family: Neue, sans-serif;
+    font-family: Roboto, sans-serif;
     letter-spacing: var(--default-letter-spacing);
 }
 
@@ -13,7 +13,7 @@ html {
 }
 
 :root {
-    --default-letter-spacing: 0.2rem;
+    --default-letter-spacing: 0.15rem;
     --padding-general: 10px;
 }
 
@@ -22,10 +22,9 @@ html {
     src: url(./fonts/BebasNeue-Regular.woff2); 
 }
 
-h1,
-h2,
-h3 {
-    letter-spacing: 0.7rem;
+@font-face {
+    font-family: Roboto;
+    src: url(./fonts/Roboto-Light.ttf);
 }
 
 /* Header */
@@ -45,6 +44,13 @@ a:hover,
 a:active {
     text-decoration: none;
     color: #000000;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+h1[class='title'] {
+    font-family: Neue;
+    letter-spacing: 0.5rem;
 }
 
 /* Main */
@@ -100,6 +106,7 @@ button.add-book:hover {
 /* Form */
 
 form {
+    font-family: Neue, sans-serif;
     background-color: lightblue;
     width: 295px;
     height: 350px;
@@ -139,6 +146,7 @@ button[type="submit"] {
     border-radius: 10px;
     border: none;
     background-color: white;
+    font-weight: bold;
 }
 
 textarea:focus,
