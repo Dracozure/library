@@ -106,7 +106,7 @@ function createBookCardElement(book) {
 
     titleElement.textContent = book.title;
     authorElement.textContent = book.author;
-    pagesElement.textContent = book.pages;
+    pagesElement.textContent = `Pages: ${book.pages}`;
     readElement.textContent = readValue;
     removeElement.textContent = 'Remove';
 
