@@ -12,7 +12,7 @@ function Book(title, author, pages, read) {
 }
 
 Book.prototype.toggleRead = function() {
-    this.read = (this.read === 'on') ? 'off' : 'on';
+    this.read = this.read ? false : true;
 }
 
 const library = {
@@ -59,7 +59,7 @@ form.addEventListener('submit', (event) => {
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const pages = document.getElementById('pages').value;
-    const read = document.getElementById('read').value;
+    const read = document.getElementById('read').checked;
     const book = new Book(title, author, pages, read);
     const bookCardElement = createBookCardElement(book);
 
@@ -90,7 +90,7 @@ function addToggleReadListener(bookElement) {
     readButton.addEventListener('click', () => {
         const readCurrent = Array.from(readButton.classList)[1];
         const readOpposite = (readCurrent === 'read') ? 'Unread' : 'Read';
-        
+
         library.toggleRead(bookElement.querySelector('.book-title').value);
         readButton.classList.remove(readCurrent);
         readButton.classList.add(readOpposite.toLowerCase());
@@ -106,7 +106,7 @@ function createBookCardElement(book) {
     const buttonGroup = document.createElement('div');
     const readElement = document.createElement('button');
     const removeElement = document.createElement('button');
-    const readValue = (book.read === 'on') ? 'Read' : 'Unread';
+    const readValue = book.read ? 'Read' : 'Unread';
 
     titleElement.textContent = book.title;
     authorElement.textContent = book.author;
