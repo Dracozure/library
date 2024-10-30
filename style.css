@@ -198,9 +198,14 @@ button[type="submit"]:hover {
     background-color: #e4e4e4;
 }
 
+button[type="submit"]:focus {
+    transition: none;
+    border: var(--focus-border);
+}
+
 textarea:focus,
-input:focus {
-    outline: none;
+input:focus,
+button:focus {
     outline: none;
 }
 
