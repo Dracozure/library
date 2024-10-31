@@ -312,8 +312,23 @@ footer {
     justify-content: center;
     align-items: center;
     padding: var(--padding-general);
-    font-size: 1.3rem;
-    background-color: #808080;
+    font-size: 1rem;
     width: 100%;
     bottom: 0;
+    gap: 5px;
+}
+
+p {
+    font-family: Neue, sans-serif;
+    letter-spacing: 0.15em;
+}
+
+footer img {
+    max-width: 23px;
+    margin-top: -1px;
+    transition: 0.2s ease-in-out transform;
+}
+
+footer img:hover {
+    transform: rotate(180deg) scale(1.3);
 }
