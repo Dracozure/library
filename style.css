@@ -75,7 +75,7 @@ a:focus {
 }
 
 button.add-book {
-    transition: var(--button-transition);
+    transition: var(--button-transition) background-color;
     padding: var(--padding-general);
     font-size: 1.5rem;
     font-weight: bold;
