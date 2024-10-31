@@ -206,22 +206,22 @@ form.title-container {
 }
 
 .duplicate-warn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
-    display: none;
     transform: translate(10px, -42px);
     background-color: #f07e7e;
     font-size: 1rem;
     border-radius: 5px;
     padding: 7px;
     flex-flow: row wrap;
-    transition: 100ms ease-in-out;
+    opacity: 0;
+    transition: 0.5s ease-in-out opacity;
 }
 
 .duplicate-warn.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 100ms ease-in-out;
+    opacity: 1;
 }
 
 .duplicate-warn::before {

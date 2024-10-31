@@ -150,5 +150,6 @@ addBookButton.addEventListener('click', () => {
 overlay.addEventListener('click', () => {
     form.reset();
     modal.classList.remove('active');
+    duplicateWarn.classList.remove('active');
 });
 
