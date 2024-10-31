@@ -3,6 +3,8 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const form = document.querySelector('form');
 const bookGrid = document.querySelector('.book-grid');
+const titleInput = document.getElementById('title');
+const duplicateWarn = document.querySelector('.duplicate-warn');
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -67,10 +69,12 @@ form.addEventListener('submit', (event) => {
         form.reset();
         modal.classList.remove('active');
     } else {
-        const duplicateWarn = document.querySelector('.duplicate-warn');
-
         duplicateWarn.classList.add('active');
     }
+});
+
+titleInput.addEventListener('input', () => {
+    duplicateWarn.classList.remove('active');
 });
 
 function addRemoveListener(bookElement) {
