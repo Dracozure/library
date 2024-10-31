@@ -15,7 +15,7 @@ html {
 :root {
     --default-letter-spacing: 0.15rem;
     --padding-general: 10px;
-    --button-transition: 0.15s ease-in-out;
+    --button-transition: 0.15s ease-in-out background-color;
     --focus-outline: 2px solid #000000;
 }
 
@@ -75,7 +75,7 @@ a:focus {
 }
 
 button.add-book {
-    transition: var(--button-transition) background-color;
+    transition: var(--button-transition);
     padding: var(--padding-general);
     font-size: 1.5rem;
     font-weight: bold;
@@ -194,6 +194,7 @@ button[type="submit"] {
     border: 2px solid transparent;
     background-color: #ffffff;
     font-weight: bold;
+    transition: var(--button-transition);
 }
 
 button[type="submit"]:hover {
