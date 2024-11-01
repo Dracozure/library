@@ -55,6 +55,11 @@ h1[class='title'] {
     letter-spacing: 0.5rem;
 }
 
+[class="login-link"] {
+    font-family: Neue, sans-serif;
+    letter-spacing: 0.2em;
+}
+
 textarea:focus,
 input:focus,
 button:focus,
