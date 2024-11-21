@@ -58,7 +58,7 @@ const library = new class {
         });
     }
 
-    static createBookCardElement(book) {
+    createBookCardElement(book) {
         const bookCardElement = document.createElement('div');
         const titleElement = document.createElement('h4');
         const authorElement = document.createElement('h4');
@@ -93,7 +93,7 @@ const library = new class {
         return bookCardElement;
     }
 
-    static addBookRemoveListener(bookElement) {
+    addBookRemoveListener(bookElement) {
         const removeButton = bookElement.querySelector('.remove');
     
         removeButton.addEventListener('click', () => {
