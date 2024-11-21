@@ -21,11 +21,11 @@ const library = class {
         this.books = [];
     }
 
-    appendBook(book) {
+    static appendBook(book) {
         this.books.push(book);
     }
 
-    hasDuplicate(book) {
+    static hasDuplicate(book) {
         const bookTitle = book.title.toLowerCase();
 
         for (let index in this.books) {
@@ -37,7 +37,7 @@ const library = class {
         return false;
     }
 
-    removeBook(bookTitle) {
+    static removeBook(bookTitle) {
         let bookIndex = 0;
 
         this.books.forEach(book => {
@@ -50,7 +50,7 @@ const library = class {
         });
     }
 
-    toggleRead(bookTitle) {
+    static toggleRead(bookTitle) {
         this.books.forEach(book => {
             if (book.title === bookTitle) {
                 book.read = book.read ? false : true;
