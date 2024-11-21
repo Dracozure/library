@@ -101,6 +101,28 @@ const library = new class {
             bookGrid.removeChild(bookElement);
         });
     }
+
+    addToggleReadListener(bookElement) {
+        const readButton = bookElement.querySelector('.read-button');
+    
+        readButton.addEventListener('click', () => {
+            const readCurrent = Array.from(readButton.classList)[1];
+            const readOpposite = (readCurrent === 'read') ? 'Unread' : 'Read';
+    
+            toggleRead(bookElement.querySelector('.book-title').textContent);
+            readButton.classList.remove(readCurrent);
+            readButton.classList.add(readOpposite.toLowerCase());
+            readButton.textContent = readOpposite;
+        });
+    }
+    
+    addBookElementToDOM(bookCardElement) {
+        bookGrid.appendChild(bookCardElement);
+    }
+    
+    removeBookElementFromDOM(bookCardElement) {
+        bookGrid.removeChild(bookCardElement);
+    }
 }
 
 form.addEventListener('submit', (event) => {
@@ -128,28 +150,6 @@ form.addEventListener('submit', (event) => {
 titleInput.addEventListener('input', () => {
     duplicateWarn.classList.remove('active');
 });
-
-function addToggleReadListener(bookElement) {
-    const readButton = bookElement.querySelector('.read-button');
-
-    readButton.addEventListener('click', () => {
-        const readCurrent = Array.from(readButton.classList)[1];
-        const readOpposite = (readCurrent === 'read') ? 'Unread' : 'Read';
-
-        library.toggleRead(bookElement.querySelector('.book-title').textContent);
-        readButton.classList.remove(readCurrent);
-        readButton.classList.add(readOpposite.toLowerCase());
-        readButton.textContent = readOpposite;
-    });
-}
-
-function addBookElementToDOM(bookCardElement) {
-    bookGrid.appendChild(bookCardElement);
-}
-
-function removeBookElementFromDOM(bookCardElement) {
-    bookGrid.removeChild(bookCardElement);
-}
 
 addBookButton.addEventListener('click', () => {
     modal.classList.add('active');
