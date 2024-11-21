@@ -15,21 +15,25 @@ class Book {
     }
 }
 
-const library = class {
-
+class Library {
     constructor() {
+        if (Library._instance) {
+            return Library._instance;
+        }
+
+        Library._instance = this;
         this.books = [];
     }
 
-    static appendBook(book) {
-        this.books.push(book);
+    appendBook(book) {
+        books.push(book);
     }
 
-    static hasDuplicate(book) {
+    hasDuplicate(book) {
         const bookTitle = book.title.toLowerCase();
 
-        for (let index in this.books) {
-            if (this.books[index].title.toLowerCase() === bookTitle) {
+        for (let index in books) {
+            if (books[index].title.toLowerCase() === bookTitle) {
                 return true;
             }
         }
@@ -37,12 +41,12 @@ const library = class {
         return false;
     }
 
-    static removeBook(bookTitle) {
+    removeBook(bookTitle) {
         let bookIndex = 0;
 
-        this.books.forEach(book => {
+        books.forEach(book => {
             if (book.title === bookTitle) {
-                this.books.splice(bookIndex, 1);
+                books.splice(bookIndex, 1);
                 return;
             }
 
@@ -50,8 +54,8 @@ const library = class {
         });
     }
 
-    static toggleRead(bookTitle) {
-        this.books.forEach(book => {
+    toggleRead(bookTitle) {
+        books.forEach(book => {
             if (book.title === bookTitle) {
                 book.read = book.read ? false : true;
                 return;
@@ -70,11 +74,11 @@ form.addEventListener('submit', (event) => {
     const book = new Book(title, author, pages, read);
     const bookCardElement = createBookCardElement(book);
 
-    if (!library.hasDuplicate(book)) {
+    if (!Library.hasDuplicate(book)) {
         addRemoveListener(bookCardElement);
         addToggleReadListener(bookCardElement);
         addBookElementToDOM(bookCardElement);
-        library.appendBook(book);
+        Library.appendBook(book);
         form.reset();
         modal.classList.remove('active');
     } else {
@@ -90,7 +94,7 @@ function addRemoveListener(bookElement) {
     const removeButton = bookElement.querySelector('.remove');
 
     removeButton.addEventListener('click', () => {
-        library.removeBook(bookElement.querySelector('.book-title').textContent);
+        Library.removeBook(bookElement.querySelector('.book-title').textContent);
         bookGrid.removeChild(bookElement);
     });
 }
@@ -102,7 +106,7 @@ function addToggleReadListener(bookElement) {
         const readCurrent = Array.from(readButton.classList)[1];
         const readOpposite = (readCurrent === 'read') ? 'Unread' : 'Read';
 
-        library.toggleRead(bookElement.querySelector('.book-title').textContent);
+        Library.toggleRead(bookElement.querySelector('.book-title').textContent);
         readButton.classList.remove(readCurrent);
         readButton.classList.add(readOpposite.toLowerCase());
         readButton.textContent = readOpposite;
