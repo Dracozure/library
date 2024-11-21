@@ -6,19 +6,26 @@ const bookGrid = document.querySelector('.book-grid');
 const titleInput = document.getElementById('title');
 const duplicateWarn = document.querySelector('.duplicate-warn');
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 }
 
-const library = {
-    books: [],
-    appendBook: function(book) {
+const library = class {
+
+    constructor() {
+        this.books = [];
+    }
+
+    appendBook(book) {
         this.books.push(book);
-    },
-    hasDuplicate: function(book) {
+    }
+
+    hasDuplicate(book) {
         const bookTitle = book.title.toLowerCase();
 
         for (let index in this.books) {
@@ -28,8 +35,9 @@ const library = {
         }
 
         return false;
-    },
-    removeBook: function(bookTitle) {
+    }
+
+    removeBook(bookTitle) {
         let bookIndex = 0;
 
         this.books.forEach(book => {
@@ -40,8 +48,9 @@ const library = {
 
             bookIndex++;
         });
-    },
-    toggleRead: function(bookTitle) {
+    }
+
+    toggleRead(bookTitle) {
         this.books.forEach(book => {
             if (book.title === bookTitle) {
                 book.read = book.read ? false : true;
