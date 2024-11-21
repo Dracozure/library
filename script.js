@@ -102,7 +102,7 @@ const library = new class {
         });
     }
 
-    addToggleReadListener(bookElement) {
+    addBookToggleReadListener(bookElement) {
         const readButton = bookElement.querySelector('.read-button');
     
         readButton.addEventListener('click', () => {
@@ -137,8 +137,8 @@ form.addEventListener('submit', (event) => {
 
     if (!library.hasDuplicate(book)) {
         library.addBookRemoveListener(bookCardElement);
-        addToggleReadListener(bookCardElement);
-        addBookElementToDOM(bookCardElement);
+        library.addBookToggleReadListener(bookCardElement);
+        library.addBookElementToDOM(bookCardElement);
         library.appendBook(book);
         form.reset();
         modal.classList.remove('active');
